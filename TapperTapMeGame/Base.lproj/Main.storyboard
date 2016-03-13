@@ -20,24 +20,27 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tapTapMeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="6ly-20-B9G">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TuC-mH-wnS">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TuC-mH-wnS" userLabel="Play Button">
                                 <rect key="frame" x="210" y="493" width="180" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="h18-P4-MdN"/>
                                     <constraint firstAttribute="height" constant="87" id="lDy-6j-W68"/>
                                 </constraints>
                                 <state key="normal" image="letsPlay"/>
+                                <connections>
+                                    <action selector="playButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pmt-EU-Tg6"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How Many Taps to Win?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yxd-dx-tkZ">
-                                <rect key="frame" x="183" y="351" width="233" height="40"/>
+                                <rect key="frame" x="183" y="321" width="233" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="233" id="dhp-IQ-4bG"/>
-                                    <constraint firstAttribute="height" constant="40" id="htn-sp-HaQ"/>
+                                    <constraint firstAttribute="height" constant="70" id="htn-sp-HaQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tapperTapMeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="o5o-6K-dAf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tapperTapMeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="o5o-6K-dAf" userLabel="Tapper Logo">
                                 <rect key="frame" x="20" y="42" width="560" height="138"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="560" id="9Xx-BD-Fvj"/>
@@ -50,31 +53,67 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0g-7N-CQj" userLabel="Strawberry Button">
+                                <rect key="frame" x="206" y="120" width="188" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="175" id="Ak4-Pl-4SO"/>
+                                    <constraint firstAttribute="width" constant="188" id="v77-j6-zlE"/>
+                                </constraints>
+                                <state key="normal" image="strawberryButton"/>
+                                <connections>
+                                    <action selector="strawberryButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tNz-6n-Zpz"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="544-ct-BNU" userLabel="Score Text">
+                                <rect key="frame" x="99" y="60" width="400" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="4Sf-mh-FKf"/>
+                                    <constraint firstAttribute="height" constant="60" id="sec-LR-dJ4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="o0g-7N-CQj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1ZK-78-1I9"/>
                             <constraint firstItem="TuC-mH-wnS" firstAttribute="centerX" secondItem="Yxd-dx-tkZ" secondAttribute="centerX" id="AbX-qx-sQj"/>
+                            <constraint firstItem="Yxd-dx-tkZ" firstAttribute="top" secondItem="544-ct-BNU" secondAttribute="bottom" constant="210" id="AgL-6l-Q2V"/>
                             <constraint firstItem="6ly-20-B9G" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="AuO-VU-gVl"/>
                             <constraint firstItem="o5o-6K-dAf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="22" id="D3k-xs-rEY"/>
+                            <constraint firstItem="544-ct-BNU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="GQM-OT-F0v"/>
                             <constraint firstItem="TuC-mH-wnS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Oxs-wA-hJ6"/>
+                            <constraint firstItem="o0g-7N-CQj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="VbT-ju-DNX"/>
                             <constraint firstItem="TuC-mH-wnS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gDK-7W-2g7"/>
                             <constraint firstItem="Yxd-dx-tkZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h8S-hq-DU9"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6ly-20-B9G" secondAttribute="bottom" id="l8R-fj-3aL"/>
                             <constraint firstItem="o5o-6K-dAf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oAv-WO-h6R"/>
+                            <constraint firstItem="544-ct-BNU" firstAttribute="top" secondItem="o0g-7N-CQj" secondAttribute="bottom" constant="150" id="sZa-B1-Htb"/>
                             <constraint firstItem="6ly-20-B9G" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="uql-lT-x6N"/>
                             <constraint firstAttribute="trailing" secondItem="o5o-6K-dAf" secondAttribute="trailing" constant="20" id="vba-TA-KCF"/>
                             <constraint firstAttribute="trailing" secondItem="6ly-20-B9G" secondAttribute="trailing" id="vcU-uf-W9d"/>
                             <constraint firstItem="TuC-mH-wnS" firstAttribute="top" secondItem="Yxd-dx-tkZ" secondAttribute="bottom" constant="102" id="w6O-2Q-ShM"/>
                             <constraint firstItem="o5o-6K-dAf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="zZT-Hn-FV5"/>
+                            <constraint firstItem="544-ct-BNU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-1" id="zcm-3n-UNs"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TuC-mH-wnS" secondAttribute="bottom" constant="20" id="zwF-zl-d5d"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="sZa-B1-Htb"/>
+                                <exclude reference="AgL-6l-Q2V"/>
                                 <exclude reference="h8S-hq-DU9"/>
                                 <exclude reference="gDK-7W-2g7"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="logoImage" destination="o5o-6K-dAf" id="LXv-rQ-Miy"/>
+                        <outlet property="playButton" destination="TuC-mH-wnS" id="0RX-eg-uBu"/>
+                        <outlet property="scoreLabel" destination="544-ct-BNU" id="KgC-Xb-V3Q"/>
+                        <outlet property="setScoreField" destination="Yxd-dx-tkZ" id="4A6-cF-D6w"/>
+                        <outlet property="strawberryButton" destination="o0g-7N-CQj" id="cAz-Cc-jeF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -83,6 +122,7 @@
     </scenes>
     <resources>
         <image name="letsPlay" width="283" height="137"/>
+        <image name="strawberryButton" width="197" height="184"/>
         <image name="tapTapMeBackground" width="800" height="800"/>
         <image name="tapperTapMeLogo" width="647" height="138"/>
     </resources>
